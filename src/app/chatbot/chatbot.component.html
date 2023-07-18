@@ -1,0 +1,14 @@
+<div class="chatbot-container">
+  <div class="chatbox" *ngFor="let message of messages">
+    <div class="user-message" *ngIf="message.from === 'user'">
+      <span class="user-text">{{ message.content }}</span>
+    </div>
+    <div class="bot-message" *ngIf="message.from === 'bot'">
+      <span class="bot-text">{{ message.content }}</span>
+    </div>
+  </div>
+  <div class="input-box">
+    <input type="text" [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Type your message here..." />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>
